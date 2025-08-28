@@ -1,0 +1,9 @@
+services:
+  name-board:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=sqlite:///./app.db
+    volumes:
+      - ./:/app
