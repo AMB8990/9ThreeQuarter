@@ -1,4 +1,4 @@
-import os
+import os, logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -7,6 +7,9 @@ from app.routes import user as user_routes
 from app.routes import data as data_routes
 
 app = FastAPI(title="Name Match Board (users & shows, in-memory)")
+
+logging.config.fileConfig("./logging.conf", disable_existing_loggers=False)
+logger = logging.getLogger("app")
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,9 +1,13 @@
 services:
-  name-board:
-    build: .
+  943ticket:
+    image: 9-three-quarter:20250829.1
+    container_name: 943ticket
+    env_file:
+      - .env
     ports:
-      - "8080:8080"
-    environment:
-      - DATABASE_URL=sqlite:///./app.db
+      - "9943:9943"          
     volumes:
-      - ./:/app
+      - ./logs:/9_three_quarter/logs
+
+    # networks:s
+    #   - amber-network
